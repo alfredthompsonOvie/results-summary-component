@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/images/favicon-32x32.png"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>
+			Frontend Mentor | Results summary component | Alfred Thompson Ovie
+		</title>
+    <style>
+      .is--page--ready {
+        visibility: hidden;
+      }
+    </style>
+    <script>
+      document.getElementsByTagName('html')[0].classList.add('is--page--ready')
+    </script>
+	</head>
+	<body>
+		<div id="app">
+			<main>
+				<section class="container">
+					<section class="result">
+						<h1 class="result__heading">Your Result</h1>
+						<section class="result__circle">
+							<h1 class="score__overall--actual">
+								<span class="score__overall--slide-to-top">7</span>
+								<span class="score__overall--slide-from-top">6</span>
+							</h1>
+							<p class="score__overall--result__total">of 100</p>
+						</section>
+
+						<section class="result__details">
+							<h1>
+                <!-- Great -->
+                <span>G</span>
+                <span>r</span>
+                <span>e</span>
+                <span>a</span>
+                <span>t</span>
+              </h1>
+							<p>
+								You scored higher than 65% of the people who have taken these
+								tests.
+							</p>
+						</section>
+					</section>
+					<section class="summary">
+						<h1 class="summary__heading">Summary</h1>
+						<ul>
+							<li class="reaction">
+								<img src="./assets/images/icon-reaction.svg" alt="" />
+								<span class="summary__result__title">Reaction</span>
+								<span class="score__breakdown"
+									><span class="score__breakdown--actual"
+										><strong>80</strong></span
+									>
+									/ 100</span
+								>
+							</li>
+							<li class="memory">
+								<img src="./assets/images/icon-memory.svg" alt="" />
+								<span class="summary__result__title">Memory</span>
+								<span class="score__breakdown"
+									><span class="score__breakdown--actual"
+										><strong>92</strong></span
+									>
+									/ 100</span
+								>
+							</li>
+							<li class="verbal">
+								<img src="./assets/images/icon-verbal.svg" alt="" />
+								<span class="summary__result__title">Verbal</span>
+								<span class="score__breakdown"
+									><span class="score__breakdown--actual"
+										><strong>61</strong></span
+									>
+									/ 100</span
+								>
+							</li>
+							<li class="visual">
+								<img src="./assets/images/icon-visual.svg" alt="" />
+								<span class="summary__result__title">Visual</span>
+								<span class="score__breakdown"
+									><span class="score__breakdown--actual"
+										><strong>72</strong></span
+									>
+									/ 100</span
+								>
+							</li>
+						</ul>
+						<button type="button" class="btn">
+              <span class="btn__content">Continue</span>
+              <span class="btn__btnBackground"></span>
+              <span class="btn__btnBackground--hover"></span>
+            </button>
+					</section>
+
+				</section>
+			</main>
+
+      <footer class="attribution">
+        Challenge by
+        <a
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="https://www.linkedin.com/in/alfredthompsonovie" target="_blank">Alfred Thompson Ovie</a>.
+      </footer>
+		</div>
+    <script>
+      window.addEventListener("DOMContentLoaded", ()=>{
+      document.getElementsByTagName('html')[0].classList.remove('is--page--ready')
+      })
+    </script>
+		<script type="module" src="/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap");
+
+:root {
+	box-sizing: border-box;
+	font-family: "Hanken Grotesk", sans-serif;
+
+	--LightRed: hsl(0, 100%, 67%);
+	--OrangeyYellow: hsl(39, 100%, 56%);
+	--GreenTeal: hsl(166, 100%, 37%);
+	--CobaltBlue: hsl(234, 85%, 45%);
+
+	--LightRed-Memory: hsla(0, 100%, 67%, 0.09);
+	--LightRed-Reaction: hsla(0, 100%, 67%, 0.1);
+	--GreenTeal-Verbal: hsla(166, 100%, 37%, 0.1);
+	--CobaltBlue-Visual: hsla(234, 85%, 45%, 0.1);
+	--DarkGrayBlue: rgba(48, 59, 90, 0.7);
+
+	/* ## Gradients */
+	--LightSlateBlue-background: hsl(252, 100%, 67%);
+	--LightRoyalBlue-background: hsl(241, 81%, 54%);
+
+	--VioletBlue-circle: hsla(256, 72%, 46%, 1);
+	--PersianBlue-circle: hsla(241, 72%, 46%, 0);
+
+	/* ### Neutral */
+	--White: hsl(0, 0%, 100%);
+	--PaleBlue: hsl(221, 100%, 96%);
+	--LightLavender: hsl(241, 100%, 89%);
+	--DarkGrayBlue: hsl(224, 30%, 27%);
+	--fs-paragraphs: 1.125rem;
+	/* 
+### Notes
+
+Use transparency to get the colour variations necessary to match the design. Hint: look into using `hsla()`.
+*/
+}
+@font-face {
+	font-family: "Henken Grotesk";
+	src: url(./assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+}
+@font-face {
+	font-family: "Henken Grotesk";
+	src: url(./assets/fonts/static/HankenGrotesk-Medium.ttf);
+	font-weight: 500;
+}
+@font-face {
+	font-family: "Henken Grotesk";
+	src: url(./assets/fonts/static/HankenGrotesk-Bold.ttf);
+	font-weight: 700;
+}
+@font-face {
+	font-family: "Henken Grotesk";
+	src: url(./assets/fonts/static/HankenGrotesk-ExtraBold.ttf);
+	font-weight: 800;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+#app {
+	max-width: 1440px;
+	margin-inline: auto;
+	font-size: var(--fs-paragraphs);
+	font-family: "Hanken Grotesk", sans-serif;
+	font-weight: normal;
+	padding-bottom: 1em;
+}
+.container {
+	max-width: 400px;
+	margin-inline: auto;
+}
+button {
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+}
+img {
+	max-width: 100%;
+}
+ul {
+	list-style: none;
+}
+
+.result {
+	background-image: linear-gradient(
+		to bottom,
+		var(--LightSlateBlue-background),
+		var(--LightRoyalBlue-background)
+	);
+
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	padding: 1.5em;
+	text-align: center;
+}
+.result__heading {
+	color: var(--LightLavender);
+	font-size: 1rem;
+	opacity: 0.8;
+}
+.result__circle {
+	--VioletBlue-circle: hsla(256, 72%, 46%, 1);
+	--PersianBlue-circle: hsla(241, 72%, 46%, 0);
+	margin: 1.5em auto;
+	background-image: linear-gradient(
+		to bottom,
+		var(--VioletBlue-circle),
+		var(--PersianBlue-circle)
+	);
+	border-radius: 50%;
+	width: 7.5em;
+	height: 7.5em;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.score__overall--actual {
+	display: flex;
+	justify-content: center;
+	font-size: 3rem;
+	color: var(--White);
+  perspective: 1000px;
+}
+.result__circle p {
+	color: var(--LightLavender);
+	opacity: 0.8;
+	font-size: 0.8rem;
+}
+.result__details {
+	color: var(--White);
+}
+.result__details h1 {
+  display: inline-flex;
+}
+.result__details p {
+	color: var(--LightLavender);
+	opacity: 0.8;
+	font-size: 1.125rem;
+	margin-top: 1em;
+	line-height: 1.5;
+}
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+.summary {
+	padding: 2em 2em;
+}
+.summary h1 {
+	color: var(--DarkGrayBlue);
+}
+.summary ul {
+	margin: 1.5em 0;
+}
+li + li {
+	margin-top: 1em;
+}
+li {
+	padding: 1em;
+	border-radius: 8px;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+  flex-wrap: wrap;
+	gap: 0.5em;
+}
+.summary__result__title {
+	font-weight: 500;
+}
+.score__breakdown {
+	color: var(--DarkGrayBlue);
+}
+.reaction {
+	background-color: var(--LightRed-Reaction);
+	color: var(--LightRed);
+}
+.memory {
+	background-color: var(--LightRed-Memory);
+	color: var(--OrangeyYellow);
+}
+.verbal {
+	background-color: var(--GreenTeal-Verbal);
+	color: var(--GreenTeal);
+}
+.visual {
+	background-color: var(--CobaltBlue-Visual);
+	color: var(--CobaltBlue);
+}
+
+.btn {
+	width: 100%;
+	padding: 1em;
+	border-radius: 28px;
+	color: var(--White);
+	font-size: 1rem;
+  transition: all .3s linear;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+.btn__content {
+  position: relative;
+  z-index: 99;
+}
+.btn__btnBackground {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+	background-color: var(--DarkGrayBlue);
+  background-image: linear-gradient(
+		to bottom,
+		var(--DarkGrayBlue),
+		var(--DarkGrayBlue)
+	);
+}
+.btn__btnBackground--hover {
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+	background-color: var(--DarkGrayBlue);
+  background-image: linear-gradient(
+		to bottom,
+		var(--LightSlateBlue-background),
+		var(--LightRoyalBlue-background)
+	);
+  transition: all .6s linear;
+}
+
+.btn:hover .btn__btnBackground--hover {
+  height: 100%;
+}
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 270px) {
+  .score__breakdown {
+    margin-left: auto;
+  }
+}
+@media (min-width: 800px) {
+	#app {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	.container {
+		max-width: 700px;
+		width: 100%;
+		margin: auto;
+
+		display: flex;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    border-radius: 2.2rem;
+	}
+	.result {
+		border-radius: 2em;
+		padding: 2.5em 2.5em;
+    flex: 1;
+	}
+	.result__heading {
+		font-size: 1.3rem;
+	}
+	.result__circle {
+		width: 8.5em;
+		height: 8.5em;
+		margin: 2em auto;
+	}
+	.score__overall--actual {
+		display: flex;
+		justify-content: center;
+		font-size: 4rem;
+		color: var(--White);
+	}
+	.result__details h1 {
+		font-size: 2rem;
+	}
+  .summary {
+    flex: 1;
+
+  }
+	.attribution {
+		position: absolute;
+		bottom: 2em;
+	}
+}
