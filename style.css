@@ -1,8 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap");
 
+/* @font-face {
+	font-family: "Henken Grotesk";
+	src: url(./assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+}
+@font-face {
+	font-family: "Henken Grotesk Medium";
+	src: url(./assets/fonts/static/HankenGrotesk-Medium.ttf);
+	font-weight: 500;
+}
+@font-face {
+	font-family: "Henken Grotesk Bold";
+	src: url(./assets/fonts/static/HankenGrotesk-Bold.ttf);
+	font-weight: bold;
+}
+@font-face {
+	font-family: "Henken Grotesk ExtraBold";
+	src: url(./assets/fonts/static/HankenGrotesk-ExtraBold.ttf);
+	font-weight: 800;
+} */
+
 :root {
 	box-sizing: border-box;
-	font-family: "Hanken Grotesk", sans-serif;
+	--ff: "Hanken Grotesk", sans-serif;
+  /* font-family: 'Hanken Grotesk', sans-serif; */
 
 	--LightRed: hsl(0, 100%, 67%);
 	--OrangeyYellow: hsl(39, 100%, 56%);
@@ -13,7 +34,7 @@
 	--LightRed-Reaction: hsla(0, 100%, 67%, 0.1);
 	--GreenTeal-Verbal: hsla(166, 100%, 37%, 0.1);
 	--CobaltBlue-Visual: hsla(234, 85%, 45%, 0.1);
-	--DarkGrayBlue: rgba(48, 59, 90, 0.7);
+	--DarkGrayBlue-score: rgba(48, 59, 90, 0.6);
 
 	/* ## Gradients */
 	--LightSlateBlue-background: hsl(252, 100%, 67%);
@@ -28,31 +49,8 @@
 	--LightLavender: hsl(241, 100%, 89%);
 	--DarkGrayBlue: hsl(224, 30%, 27%);
 	--fs-paragraphs: 1.125rem;
-	/* 
-### Notes
+}
 
-Use transparency to get the colour variations necessary to match the design. Hint: look into using `hsla()`.
-*/
-}
-@font-face {
-	font-family: "Henken Grotesk";
-	src: url(./assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
-}
-@font-face {
-	font-family: "Henken Grotesk";
-	src: url(./assets/fonts/static/HankenGrotesk-Medium.ttf);
-	font-weight: 500;
-}
-@font-face {
-	font-family: "Henken Grotesk";
-	src: url(./assets/fonts/static/HankenGrotesk-Bold.ttf);
-	font-weight: 700;
-}
-@font-face {
-	font-family: "Henken Grotesk";
-	src: url(./assets/fonts/static/HankenGrotesk-ExtraBold.ttf);
-	font-weight: 800;
-}
 
 *,
 *::before,
@@ -65,13 +63,15 @@ Use transparency to get the colour variations necessary to match the design. Hin
 	max-width: 1440px;
 	margin-inline: auto;
 	font-size: var(--fs-paragraphs);
-	font-family: "Hanken Grotesk", sans-serif;
+	font-family: var(--ff);
+  /* font-family: 'Hanken Grotesk'; */
 	font-weight: normal;
 	padding-bottom: 1em;
 }
 .container {
 	max-width: 400px;
 	margin-inline: auto;
+  overflow: hidden;
 }
 button {
 	background-color: transparent;
@@ -84,6 +84,38 @@ img {
 ul {
 	list-style: none;
 }
+/* .loader {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: red;
+} */
+.loader__list {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  /* display: flex; */
+}
+.loader__item {
+  width: 100%;
+  height: 20%;
+  background-color: #0099ff;
+}
+.loader__item:nth-child(odd){
+  /* background-color: red; */
+}
+/* .loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0099ff;
+  z-index: 100;
+} */
 
 .result {
 	background-image: linear-gradient(
@@ -92,28 +124,26 @@ ul {
 		var(--LightRoyalBlue-background)
 	);
 
-	border-bottom-left-radius: 20px;
-	border-bottom-right-radius: 20px;
-	padding: 1.5em;
+	border-bottom-left-radius: 2.2em;
+	border-bottom-right-radius: 2.2em;
+	padding: 2em 1.5em;
 	text-align: center;
 }
 .result__heading {
 	color: var(--LightLavender);
-	font-size: 1rem;
+	font-size: 1.5rem;
 	opacity: 0.8;
 }
 .result__circle {
-	--VioletBlue-circle: hsla(256, 72%, 46%, 1);
-	--PersianBlue-circle: hsla(241, 72%, 46%, 0);
-	margin: 1.5em auto;
+	margin: 1.5em auto 1em;
 	background-image: linear-gradient(
 		to bottom,
 		var(--VioletBlue-circle),
 		var(--PersianBlue-circle)
 	);
 	border-radius: 50%;
-	width: 7.5em;
-	height: 7.5em;
+	width: 8em;
+	height: 8em;
 	display: inline-flex;
 	flex-direction: column;
 	justify-content: center;
@@ -121,26 +151,28 @@ ul {
 .score__overall--actual {
 	display: flex;
 	justify-content: center;
-	font-size: 3rem;
+	font-size: 4.5rem;
 	color: var(--White);
-  perspective: 1000px;
+  font-weight: 700;
+  line-height: 1;
 }
 .result__circle p {
 	color: var(--LightLavender);
 	opacity: 0.8;
-	font-size: 0.8rem;
+	font-size: .9rem;
 }
 .result__details {
 	color: var(--White);
 }
 .result__details h1 {
   display: inline-flex;
+  font-size: 2rem;
 }
 .result__details p {
 	color: var(--LightLavender);
 	opacity: 0.8;
 	font-size: 1.125rem;
-	margin-top: 1em;
+	margin-top: .5em;
 	line-height: 1.5;
 }
 /* -------------------------------------------------------------------------- */
@@ -158,10 +190,10 @@ ul {
 .summary ul {
 	margin: 1.5em 0;
 }
-li + li {
+.result__item + .result__item {
 	margin-top: 1em;
 }
-li {
+.result__item {
 	padding: 1em;
 	border-radius: 8px;
 	display: flex;
@@ -170,11 +202,12 @@ li {
   flex-wrap: wrap;
 	gap: 0.5em;
 }
-.summary__result__title {
-	font-weight: 500;
-}
 .score__breakdown {
-	color: var(--DarkGrayBlue);
+  color: var(--DarkGrayBlue-score);
+}
+.score__breakdown--actual {
+  font-weight: 500;
+  color: var(--DarkGrayBlue);
 }
 .reaction {
 	background-color: var(--LightRed-Reaction);
@@ -208,20 +241,22 @@ li {
   position: relative;
   z-index: 99;
 }
-.btn__btnBackground {
-  width: 100%;
-  height: 100%;
+.btn::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
-	background-color: var(--DarkGrayBlue);
+  width: 100%;
+  height: 100%;
+  background-color: var(--DarkGrayBlue);
   background-image: linear-gradient(
 		to bottom,
 		var(--DarkGrayBlue),
 		var(--DarkGrayBlue)
 	);
 }
-.btn__btnBackground--hover {
+.btn::after {
+  content: '';
   width: 100%;
   height: 0%;
   position: absolute;
@@ -233,10 +268,9 @@ li {
 		var(--LightSlateBlue-background),
 		var(--LightRoyalBlue-background)
 	);
-  transition: all .6s linear;
+  transition: all .4s linear;
 }
-
-.btn:hover .btn__btnBackground--hover {
+.btn:hover::after {
   height: 100%;
 }
 .attribution {
@@ -278,19 +312,22 @@ li {
 		font-size: 1.3rem;
 	}
 	.result__circle {
-		width: 8.5em;
-		height: 8.5em;
+		width: 9.5em;
+		height: 9.5em;
 		margin: 2em auto;
 	}
 	.score__overall--actual {
 		display: flex;
 		justify-content: center;
-		font-size: 4rem;
+		font-size: 5rem;
 		color: var(--White);
 	}
 	.result__details h1 {
 		font-size: 2rem;
 	}
+  .result__details p {
+    margin-top: 1.2em;
+  }
   .summary {
     flex: 1;
 

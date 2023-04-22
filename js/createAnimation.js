@@ -14,7 +14,7 @@ export function createAnimation() {
         ".result__details h1 span",
         ".result__details p",
         ".summary__heading",
-        "li",
+        ".result__item",
         ".btn",
         ".attribution"
       ], {
@@ -24,8 +24,14 @@ export function createAnimation() {
   });
 
   tl
-    .from(['.container','.result'], {
-      autoAlpha: 0.01
+    // .from('.container', {
+    //   autoAlpha: 0.01
+    // })
+    .from('.result', {
+      autoAlpha: 0,
+      duration: 1,
+      x: -60,
+      ease: "power4.easeInOut"
     })
     .fromTo(".result__heading", {
       x: 20,
@@ -62,8 +68,8 @@ export function createAnimation() {
       autoAlpha: 0.01
     })
     .from(".result__details h1 span", {
-      y: -20,
-      x: 20,
+      y: -8,
+      x: 5,
       autoAlpha: 0.01,
       stagger: 0.2
     })
@@ -88,7 +94,7 @@ export function createAnimation() {
       duration: 1.4,
       x: 0,
     })
-    .fromTo("li", {
+    .fromTo(".result__item", {
       x: 40,
       autoAlpha: 0.01,
     }, {
@@ -100,7 +106,7 @@ export function createAnimation() {
     })
     .fromTo([".btn", ".attribution"], {
       autoAlpha: 0.01,
-      clipPath: 'circle(14.5% at 50% 50%)'
+      clipPath: 'circle(0% at 50% 50%)'
     }, {
       clipPath: 'circle(100% at 50% 50%)',
       autoAlpha: 1,
@@ -108,9 +114,3 @@ export function createAnimation() {
       duration: 4,
     })
 }
-
-
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/alfredthompsonOvie/results-summary-component.git
-git push -u origin main

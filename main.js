@@ -1,14 +1,11 @@
-import './style.css'
-import barba from '@barba/core';
-import { createAnimation } from './createAnimation';
-function main() {
-  createAnimation();
+import "./style.css";
+import { fetchData } from "./js/fetchData";
 
-  // barba.init({
-  //   // ...
-  // });
+import { barbaAnimation } from "./js/barbaAnimation";
+function main() {
+	fetchData();
+  barbaAnimation()
 }
 
 // main();
-window.addEventListener("DOMContentLoaded", main)
-
+window.addEventListener("DOMContentLoaded", main);
