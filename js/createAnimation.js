@@ -24,13 +24,20 @@ export function createAnimation() {
   });
 
   tl
-    // .from('.container', {
-    //   autoAlpha: 0.01
-    // })
-    .from('.result', {
+    .to('.container', {
+      autoAlpha: 1,
+      duration: 0.001
+    })
+    .fromTo('.result', {
       autoAlpha: 0,
-      duration: 1,
-      x: -60,
+      x: 100,
+      clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)'
+      
+    }, {
+      autoAlpha: 1,
+      duration: .8,
+      x: 0,
+      clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
       ease: "power4.easeInOut"
     })
     .fromTo(".result__heading", {
